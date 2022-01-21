@@ -9,7 +9,30 @@ import menuItems from './header.data';
 
 export default function Header({ className }) {
   return (
-      <h1>Header</h1>
+    <header sx={styles.header} className={className} id="header">
+      <Container sx={styles.container}>
+        <Logo src={LogoDark} />
+        <Flex as="nav" sx={styles.nav}>
+          {menuItems.map((menuItem, i) => (
+            <Link
+              activeClass="active"
+              to={menuItem.path}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              key={i}
+            >
+              {menuItem.label}
+            </Link>
+          ))}
+        </Flex>
+        <Button className="donate__btn" variant="secondary" aria-label="Get Started">
+          Get Started
+        </Button>
+        <MobileDrawer />
+      </Container>
+    </header>
   );
 }
 
@@ -41,7 +64,7 @@ const styles = {
     '.donate__btn': {
       flexShrink: 0,
       mr: [15, 20, null, null, 0],
-      ml: ['auto', null, null, null, 0],
+      ml: ['auto', null, null, null, 0]
     },
     '&.sticky': {
       position: 'fixed',
@@ -50,20 +73,20 @@ const styles = {
       boxShadow: '0 1px 2px rgba(0, 0, 0, 0.06)',
       py: 3,
       'nev > a': {
-        color: 'text',
-      },
-    },
+        color: 'text'
+      }
+    }
   },
   container: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   nav: {
     mx: 'auto',
     display: 'none',
     '@media screen and (min-width: 1024px)': {
-      display: 'block',
+      display: 'block'
     },
     a: {
       fontSize: 2,
@@ -73,11 +96,11 @@ const styles = {
       lineHeight: '1.2',
       transition: 'all 0.15s',
       '&:hover': {
-        color: 'primary',
+        color: 'primary'
       },
       '&.active': {
-        color: 'primary',
-      },
-    },
-  },
+        color: 'primary'
+      }
+    }
+  }
 };
