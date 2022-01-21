@@ -10,27 +10,70 @@ import menuItems from './header.data';
 const social = [
   {
     path: '/',
-    icon: <FaFacebookF />,
+    icon: <FaFacebookF />
   },
   {
     path: '/',
-    icon: <FaTwitter />,
+    icon: <FaTwitter />
   },
   {
     path: '/',
-    icon: <FaGithubAlt />,
+    icon: <FaGithubAlt />
   },
   {
     path: '/',
-    icon: <FaDribbble />,
-  },
+    icon: <FaDribbble />
+  }
 ];
 
 export default function MobileDrawer() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
-   <h1>Mobile Drawer</h1>
+    <Drawer
+      width="320px"
+      drawerHandler={
+        <Box sx={styles.handler}>
+          <IoMdMenu size="26px" />
+        </Box>
+      }
+      open={isDrawerOpen}
+      toggleHandler={() => setIsDrawerOpen((prevState) => !prevState)}
+      closeButton={<IoMdClose size="24px" color="#000" />}
+      drawerStyle={styles.drawer}
+      closeBtnStyle={styles.close}
+    >
+      <Scrollbars autoHide>
+        <Box sx={styles.content}>
+          <Box sx={styles.menu}>
+            {menuItems.map((menuItem, i) => (
+              <Link
+                activeClass="active"
+                to={menuItem.path}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                key={i}
+              >
+                {menuItem.label}
+              </Link>
+            ))}
+          </Box>
+          <Box sx={styles.menuFooter}>
+            <Box sx={styles.social}>
+              {social.map((socialItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link to={socialItem.path}>{socialItem.icon}</Link>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      </Scrollbars>
+    </Drawer>
   );
-};
+}
 
 const styles = {
   handler: {
@@ -41,14 +84,14 @@ const styles = {
     width: '26px',
 
     '@media screen and (min-width: 1024px)': {
-      display: 'none',
-    },
+      display: 'none'
+    }
   },
 
   drawer: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'dark',
+    backgroundColor: 'dark'
   },
 
   close: {
@@ -59,7 +102,7 @@ const styles = {
     top: '25px',
     right: '30px',
     zIndex: '1',
-    cursor: 'pointer',
+    cursor: 'pointer'
   },
 
   content: {
@@ -69,7 +112,7 @@ const styles = {
     flexDirection: 'column',
     pt: '100px',
     pb: '40px',
-    px: '30px',
+    px: '30px'
   },
 
   menu: {
@@ -85,12 +128,12 @@ const styles = {
       borderBottom: '1px solid #e8e5e5',
       transition: 'all 0.25s',
       '&:hover': {
-        color: 'secondary',
+        color: 'secondary'
       },
       '&.active': {
-        color: 'secondary',
-      },
-    },
+        color: 'secondary'
+      }
+    }
   },
 
   menuFooter: {
@@ -98,7 +141,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    mt: 'auto',
+    mt: 'auto'
   },
 
   social: {
@@ -117,12 +160,12 @@ const styles = {
       transition: 'all 0.25s',
       cursor: 'pointer',
       ':last-child': {
-        mr: '0',
+        mr: '0'
       },
       '&:hover': {
-        color: 'secondary',
-      },
-    },
+        color: 'secondary'
+      }
+    }
   },
 
   button: {
@@ -136,6 +179,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    py: '0',
-  },
+    py: '0'
+  }
 };
