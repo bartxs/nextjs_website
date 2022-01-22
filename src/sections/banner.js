@@ -7,7 +7,23 @@ import ShapeRight from 'assets/shape-right.png';
 
 export default function Banner() {
   return (
-    <h1>Banner</h1>
+    <section sx={styles.banner} id="home">
+      <Container sx={styles.banner.container}>
+        <Box sx={styles.banner.container}>
+          <Heading as="h1" variant="heroPrimary">
+            Top Quality Digital Products to Explore
+          </Heading>
+          <Text as="p" variant="heroSecondary">
+            Check out our website to find great software products and deal! If you need a website ot
+            a web application this the place to go!
+          </Text>
+          <Button variant="primary">Explore</Button>
+        </Box>
+        <Box sx={styles.banner.imageBox}>
+          <Image src={BannerImg} alt="banner" />
+        </Box>
+      </Container>
+    </section>
   );
 }
 
@@ -28,7 +44,7 @@ const styles = {
       backgroundImage: `url(${ShapeLeft})`,
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom left',
-      backgroundSize: '36%',
+      backgroundSize: '36%'
     },
     '&::after': {
       position: 'absolute',
@@ -41,19 +57,19 @@ const styles = {
       backgroundImage: `url(${ShapeRight})`,
       backgroundRepeat: `no-repeat`,
       backgroundPosition: 'bottom right',
-      backgroundSize: '32%',
+      backgroundSize: '32%'
     },
     container: {
       minHeight: 'inherit',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     contentBox: {
       width: ['100%', '90%', '535px', null, '57%', '60%', '68%', '60%'],
       mx: 'auto',
       textAlign: 'center',
-      mb: ['40px', null, null, null, null, 7],
+      mb: ['40px', null, null, null, null, 7]
     },
     imageBox: {
       justifyContent: 'center',
@@ -62,8 +78,8 @@ const styles = {
       mb: [0, null, -6, null, null, '-40px', null, -3],
       img: {
         position: 'relative',
-        height: [245, 'auto'],
-      },
-    },
-  },
+        height: [245, 'auto']
+      }
+    }
+  }
 };
