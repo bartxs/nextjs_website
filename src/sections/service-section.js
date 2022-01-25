@@ -21,23 +21,43 @@ const data = {
       imgSrc: Smart,
       altText: 'Smart Features',
       title: 'Smart Features',
-      text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
+      text: 'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.'
     },
     {
       id: 2,
       imgSrc: Secure,
       altText: 'Secure Contents',
       title: 'Secure Contents',
-      text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
-    },
-  ],
+      text: 'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.'
+    }
+  ]
 };
 
 export default function ServiceSection() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    setVideoOpen(true);
+  };
+
   return (
-    <h1>Service Section</h1>
+    <section sx={{ variant: 'section.services' }}>
+      <Container sx={styles.containerBox}>
+        <Box sx={styles.thumbnail}>
+          <Image src={ServiceThumb} alt="Thumbnail" />
+          <Button sx={styles.videoBtn} onClick={handleClick} aria-label="Play button">
+            <span>
+              <IoIosPlay />
+            </span>
+          </Button>
+          <Box sx={styles.shapeBox}>
+            <Image src={shapePattern} alt="shape" />
+          </Box>
+        </Box>
+        <Box sx={styles.contentBox}>
+          <TextFeature subTitle={data.subTitle} title={data.title} />
+        </Box>
+      </Container>
+    </section>
   );
 }
 
@@ -56,14 +76,14 @@ const playPluse = keyframes`
 const styles = {
   coreFeature: {
     py: [0, null, null, 2, null, 7],
-    position: 'relative',
+    position: 'relative'
   },
   containerBox: {
     display: 'flex',
     alignItems: ['flex-start', null, null, 'center'],
     justifyContent: ['flex-start', null, null, 'space-between'],
     flexDirection: ['column', null, null, 'row'],
-    pb: [0, null, null, null, null, 7],
+    pb: [0, null, null, null, null, 7]
   },
   thumbnail: {
     mr: ['auto', null, null, 6, 60, 85],
@@ -74,15 +94,15 @@ const styles = {
     '> img': {
       position: 'relative',
       zIndex: 1,
-      height: [310, 'auto'],
-    },
+      height: [310, 'auto']
+    }
   },
   shapeBox: {
     position: 'absolute',
     bottom: -68,
     left: -160,
     zIndex: -1,
-    display: ['none', null, null, null, null, 'inline-block'],
+    display: ['none', null, null, null, null, 'inline-block']
   },
   videoBtn: {
     zIndex: 2,
@@ -106,7 +126,7 @@ const styles = {
       backgroundColor: 'primary',
       borderRadius: '50%',
       animation: `${playPluse} 1.5s ease-out infinite`,
-      opacity: 0.5,
+      opacity: 0.5
     },
     '> span': {
       backgroundColor: 'rgba(255,255,255,0.5)',
@@ -120,17 +140,17 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
       position: 'relative',
-      zIndex: 2,
+      zIndex: 2
     },
     svg: {
-      fontSize: [40, null, 48, null, 62],
-    },
+      fontSize: [40, null, 48, null, 62]
+    }
   },
   contentBox: {
     width: ['100%', null, null, 315, 390, 450, null, 500],
     flexShrink: 0,
     mb: [7, null, 60, 0],
-    textAlign: ['center', null, null, 'left'],
+    textAlign: ['center', null, null, 'left']
   },
   grid: {
     pr: [2, 0, null, null, 6, '70px'],
@@ -139,19 +159,19 @@ const styles = {
     mx: 'auto',
     width: ['100%', 370, 420, '100%'],
     gridGap: ['35px 0', null, null, null, '50px 0'],
-    gridTemplateColumns: ['repeat(1,1fr)'],
+    gridTemplateColumns: ['repeat(1,1fr)']
   },
   card: {
     display: 'flex',
     alignItems: 'flex-start',
-    transition: 'all 0.3s',
+    transition: 'all 0.3s'
   },
 
   icon: {
     width: ['45px', null, null, null, '55px'],
     height: 'auto',
     flexShrink: 0,
-    mr: [3, null, null, null, 4],
+    mr: [3, null, null, null, 4]
   },
   wrapper: {
     width: '100%',
@@ -164,14 +184,14 @@ const styles = {
       color: 'heading_secondary',
       lineHeight: 1.4,
       fontWeight: 700,
-      mb: [2, null, 3, 2, 3],
+      mb: [2, null, 3, 2, 3]
     },
 
     subTitle: {
       fontSize: [1, null, null, '14px', 1],
       fontWeight: 400,
-      lineHeight: 1.9,
-    },
+      lineHeight: 1.9
+    }
   },
   videoWrapper: {
     maxWidth: '100%',
@@ -180,14 +200,14 @@ const styles = {
     '&:before': {
       content: '""',
       display: 'block',
-      paddingTop: '56.25%',
+      paddingTop: '56.25%'
     },
     iframe: {
       width: '100%',
       height: '100%',
       position: 'absolute',
       top: 0,
-      left: 0,
-    },
-  },
+      left: 0
+    }
+  }
 };
