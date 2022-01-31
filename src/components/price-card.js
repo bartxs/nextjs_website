@@ -10,11 +10,41 @@ export default function PriceCard({
     priceWithUnit,
     buttonText = 'Start Free Trial',
     anotherOption,
-    points,
-  },
+    points
+  }
 }) {
   return (
-    <h1>PriceCard</h1>
+    <Card className={header ? 'package__card active' : 'package__card'} sx={styles.pricingBox}>
+      {header && <Text sx={styles.header}>{header}</Text>}
+      <Box>
+        <Box className="package__header" sx={styles.pricingHeader}>
+          <Heading className="package__name" variant="title">
+            {name}
+          </Heading>
+          <Text as="p">{description}</Text>
+        </Box>
+        <List items={points} childStyle={styles.listItem} />
+        <Text className="package__price" sx={styles.price}>
+          {priceWithUnit}
+          <span>/Monthly</span>
+        </Text>
+        <Box sx={styles.buttonGroup}>
+          <Button variant="primary" aria-label={buttonText}>
+            {buttonText}
+          </Button>
+          {anotherOption && (
+            <Button
+              variant="textButton"
+              className="free__trail"
+              aria-label={anotherOption}
+              sx={{ color: 'black' }}
+            >
+              {anotherOption}
+            </Button>
+          )}
+        </Box>
+      </Box>
+    </Card>
   );
 }
 
@@ -38,14 +68,14 @@ const styles = {
       border: '1px solid rgba(38, 78, 118, 0.1)',
       borderRadius: 'inherit',
       transition: 'all 0.3s',
-      zIndex: -1,
+      zIndex: -1
     },
     '&:hover': {
       boxShadow: '0px 4px 25px rgba(38, 78, 118, 0.1) !important',
       '&:before': {
-        opacity: 0,
-      },
-    },
+        opacity: 0
+      }
+    }
   },
   header: {
     height: ['28px', null, null, '32px'],
@@ -61,7 +91,7 @@ const styles = {
     position: 'absolute',
     top: '-17px',
     letterSpacing: '-.14px',
-    px: '12px',
+    px: '12px'
   },
   pricingHeader: {
     justifyContent: 'space-between',
@@ -70,11 +100,11 @@ const styles = {
     p: {
       fontSize: [1, 2],
       color: 'text',
-      lineHeight: 'heading',
+      lineHeight: 'heading'
     },
     '.package__name': {
-      marginBottom: [1, null, 2],
-    },
+      marginBottom: [1, null, 2]
+    }
   },
   price: {
     fontWeight: 500,
@@ -92,8 +122,8 @@ const styles = {
       pl: '3px',
       display: 'inline-block',
       fontSize: [1, 2],
-      fontWeight: 'normal',
-    },
+      fontWeight: 'normal'
+    }
   },
   listItem: {
     fontFamily: 'DM Sans',
@@ -107,9 +137,9 @@ const styles = {
     '&.closed': {
       opacity: 0.55,
       button: {
-        color: '#788FB5',
-      },
-    },
+        color: '#788FB5'
+      }
+    }
   },
   buttonGroup: {
     textAlign: 'center',
@@ -120,7 +150,7 @@ const styles = {
       justifyContent: 'center',
       fontWeight: 700,
       fontSize: ['14px', 1],
-      p: '20px 0 0',
-    },
-  },
+      p: '20px 0 0'
+    }
+  }
 };
