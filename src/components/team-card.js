@@ -4,7 +4,24 @@ import { Text, Heading, Image, Box, Link } from 'theme-ui';
 
 export default function TeamCard({ src, altText, title, designation, social }) {
   return (
-    <h1>TeamCard</h1>
+    <Box sx={styles.card}>
+      <Image src={src} alt={altText} sx={styles.memberThumb} />
+      <Box sx={styles.infoWrapper}>
+        <Heading className="info__name" sx={styles.infoWrapper}>
+          {title}
+        </Heading>
+        <Text className="info_designation" sx={styles.infoWrapper.designation}>
+          {designation}
+        </Text>
+      </Box>
+      <Box sx={styles.socialShare} className="social__share">
+        {social.map((ietm) => (
+          <Link key={item.id} href={item.path} className={item.name}>
+            {item.icon}
+          </Link>
+        ))}
+      </Box>
+    </Box>
   );
 }
 
@@ -21,19 +38,19 @@ const styles = {
     '&:hover': {
       boxShadow: ['none', null, '0 4px 10px rgba(39, 83, 123, 0.12)'],
       '.info__name': {
-        color: 'primary',
+        color: 'primary'
       },
       '.info__designation': {
-        color: 'primary',
+        color: 'primary'
       },
       '.social__share': {
         opacity: 1,
         a: {
           my: 0,
-          py: [0, null, 1],
-        },
-      },
-    },
+          py: [0, null, 1]
+        }
+      }
+    }
   },
 
   memberThumb: {
@@ -42,7 +59,7 @@ const styles = {
     flexShrink: 0,
     border: '2px solid',
     borderColor: 'primary',
-    borderRadius: '50%',
+    borderRadius: '50%'
   },
   infoWrapper: {
     width: '100%',
@@ -53,15 +70,15 @@ const styles = {
       fontWeight: 'bold',
       lineHeight: [1.25, 1.35],
       transition: 'color 0.25s',
-      mb: 1,
+      mb: 1
     },
     designation: {
       fontSize: ['14px', null, null, 2],
       fontWeight: 'body',
       lineHeight: 'heading',
       color: 'text',
-      transition: 'color 0.25s',
-    },
+      transition: 'color 0.25s'
+    }
   },
   socialShare: {
     position: ['relative', null, 'absolute'],
@@ -83,8 +100,8 @@ const styles = {
       px: 1,
       transition: 'all 0.25s',
       '&:hover': {
-        color: ['primary', null, 'text'],
-      },
-    },
-  },
+        color: ['primary', null, 'text']
+      }
+    }
+  }
 };
