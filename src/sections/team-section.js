@@ -24,21 +24,21 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
+        icon: <FaInstagram />
+      }
+    ]
   },
   {
     id: 2,
@@ -51,21 +51,21 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
+        icon: <FaInstagram />
+      }
+    ]
   },
   {
     id: 3,
@@ -78,21 +78,21 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
+        icon: <FaInstagram />
+      }
+    ]
   },
   {
     id: 4,
@@ -105,21 +105,21 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
+        icon: <FaInstagram />
+      }
+    ]
   },
   {
     id: 5,
@@ -132,21 +132,21 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
+        icon: <FaInstagram />
+      }
+    ]
   },
   {
     id: 6,
@@ -159,27 +159,44 @@ const data = [
         id: 1,
         name: 'facebook',
         path: '#',
-        icon: <FaFacebookF />,
+        icon: <FaFacebookF />
       },
       {
         id: 2,
         name: 'twitter',
         path: '#',
-        icon: <FaTwitter />,
+        icon: <FaTwitter />
       },
       {
         id: 3,
         name: 'instagram',
         path: '#',
-        icon: <FaInstagram />,
-      },
-    ],
-  },
+        icon: <FaInstagram />
+      }
+    ]
+  }
 ];
 
 export default function TeamSection() {
   return (
-    <h1>Team Section</h1>
+    <section>
+      <Container>
+        <SectionHeader slogan="our team" title="The most qualified and talented individuals" />
+
+        <Grid sx={styles.grid}>
+          {data.map((item) => (
+            <TeamCard
+              key={item.id}
+              src={item.imgSrc}
+              altText={item.altText}
+              title={item.title}
+              designation={item.designation}
+              social={item.socialProfile}
+            />
+          ))}
+        </Grid>
+      </Container>
+    </section>
   );
 }
 
@@ -187,12 +204,6 @@ const styles = {
   grid: {
     mt: [0, null, -6, null, -4],
     gridGap: ['35px 0px', null, 0, null, null, '30px 35px'],
-    gridTemplateColumns: [
-      'repeat(2,1fr)',
-      null,
-      'repeat(2,1fr)',
-      null,
-      'repeat(3,1fr)',
-    ],
-  },
+    gridTemplateColumns: ['repeat(2,1fr)', null, 'repeat(2,1fr)', null, 'repeat(3,1fr)']
+  }
 };
