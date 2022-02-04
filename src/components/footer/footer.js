@@ -6,7 +6,25 @@ import FooterLogo from 'assets/logo.svg';
 
 export default function Footer() {
   return (
-    <h1>Footer</h1>
+    <footer sx={styles.footer}>
+      <Container>
+        <Box sx={styles.footer.footerBottomArea}>
+          <Link path="/">
+            <Image src={FooterLogo} />
+          </Link>
+          <Box sx={styles.footer.menus}>
+            <nav>
+              {data.menuItem.map((item, i) => (
+                <Link path={item.path} key={i} label={item.label} sx={styles.footer.link} />
+              ))}
+            </nav>
+          </Box>
+          <Text sx={styles.footer.copyright}>
+            Copyright by {new Date().getFullYear()} Company name
+          </Text>
+        </Box>
+      </Container>
+    </footer>
   );
 }
 
@@ -19,7 +37,7 @@ const styles = {
       pt: [7, null, 8],
       pb: ['40px', null, '100px'],
       textAlign: 'center',
-      flexDirection: 'column',
+      flexDirection: 'column'
     },
     menus: {
       mt: [3, 4],
@@ -28,8 +46,8 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexWrap: 'wrap',
-      },
+        flexWrap: 'wrap'
+      }
     },
 
     link: {
@@ -44,12 +62,12 @@ const styles = {
       lineHeight: [1.5, null, 1.8],
       px: [2, null, 4],
       ':hover': {
-        color: 'primary',
-      },
+        color: 'primary'
+      }
     },
     copyright: {
       fontSize: [1, '15px'],
-      width: '100%',
-    },
-  },
+      width: '100%'
+    }
+  }
 };
