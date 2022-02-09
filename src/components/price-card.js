@@ -33,12 +33,7 @@ export default function PriceCard({
             {buttonText}
           </Button>
           {anotherOption && (
-            <Button
-              variant="textButton"
-              className="free__trail"
-              aria-label={anotherOption}
-              sx={{ color: 'black' }}
-            >
+            <Button variant="textButton" className="free__trail" aria-label={anotherOption}>
               {anotherOption}
             </Button>
           )}
@@ -145,7 +140,7 @@ const styles = {
     textAlign: 'center',
     mt: ['30px', null, null, null, '35px'],
     '.free__trail': {
-      color: 'secondary',
+      color: 'black',
       width: '100%',
       justifyContent: 'center',
       fontWeight: 700,
